@@ -24,7 +24,7 @@
     </div>
     <div>
         <label for="reg-confirm">Confirm Password</label><br>
-        <input type="password" name="confirm-password" required><br>
+        <input type="password" name="password_confirmation" required><br>
     </div>
     <button type="submit">Register</button>
     <a href=" {{ route('login') }} ">Already have an Account?</a>
