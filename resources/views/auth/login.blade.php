@@ -1,4 +1,5 @@
-<form action="">
+<form method="POST" action=" {{ route('login') }} ">
+    @csrf
     <h3>Login</h3><br>
     <div>
         <label for="">Email</label><br>
