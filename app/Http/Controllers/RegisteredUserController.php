@@ -24,7 +24,7 @@ class RegisteredUserController extends Controller
         $user = User::create([
             'name' => $validated['name'],
             'email' => $validated['email'],
-            'password' => Hash::make($validated['email']),
+            'password' => Hash::make($validated['password']),
         ]);
         Auth::login($user);
         return redirect()->route('forms.index');

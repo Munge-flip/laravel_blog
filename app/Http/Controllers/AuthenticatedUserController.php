@@ -18,7 +18,7 @@ class AuthenticatedUserController extends Controller
         ]);
         if (Auth::attempt($credentials)) {
             $request->session()->regenerateToken();
-            return redirect()->intended(route('login'));
+            return redirect()->intended(route('forms.index'));
         }
         return back()->withErrors([
             'email' => 'The credentials do not much our records',
