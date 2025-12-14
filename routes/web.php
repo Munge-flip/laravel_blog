@@ -10,6 +10,7 @@ Route::middleware('guest')->group(function () {
     Route::post('/register', [RegisteredUserController::class, 'store']);
 
     Route::get('/login', [AuthenticatedUserController::class, 'create'])->name('login');
+    Route::post('/login', [AuthenticatedUserController::class, 'store']);
 });
 
 Route::middleware('auth')->group(function () {
