@@ -5,7 +5,7 @@ use App\Http\Controllers\AuthenticatedUserController;
 use App\Http\Controllers\RegisteredUserController;
 
 Route::middleware('guest')->group(function() {
-    Route::get('/register', [RegisteredUserController::class, 'index'])->name('register');
+    Route::get('/register', [RegisteredUserController::class, 'create'])->name('register');
     Route::post('/register', [RegisteredUserController::class, 'store']);
     
     Route::get('/login', [AuthenticatedUserController::class, 'index'])->name('login');
