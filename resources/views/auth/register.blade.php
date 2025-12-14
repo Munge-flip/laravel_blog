@@ -3,14 +3,14 @@
     <h3>Register</h3><br>
     <div>
         <label for="">Name</label><br>
-        <input type="text" name="name" required><br>
+        <input type="text" name="name" value=" {{ old('name') }} " required><br>
         @error('name')
         <div style="color: red"> {{ $message }} </div>
         @enderror
     </div>
     <div>
         <label for="">Email</label><br>
-        <input type="email" name="email" required><br>
+        <input type="email" name="email" value=" {{ old('email') }} " required><br>
         @error('email')
         <div style="color: red"> {{ $message }} </div>
         @enderror
