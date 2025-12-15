@@ -1,4 +1,5 @@
-<form action="">
+<form method="POST" action=" {{route('register')}} ">
+    @csrf
     <h3>Register</h3>
     <div>
         <label for="reg-name">Name</label><br>
@@ -22,8 +23,8 @@
         @enderror
     </div>
     <div>
-        <label for="reg-password">Confirm Password</label><br>
-        <input type="password" name="password_confirmation" id="reg-name" required>
+        <label for="reg-confirm">Confirm Password</label><br>
+        <input type="password" name="password_confirmation" id="reg-confirm" required>
         @error('password')
         <div style="color: red"> {{$message}} </div>
         @enderror
