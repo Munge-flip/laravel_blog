@@ -20,11 +20,11 @@ class FormController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'text' => ['required', 'string', 'max:50'],
+            'username' => ['required', 'string', 'max:50'],
             'password' => ['required', Password::defaults()],
         ]);
         $form = Form::class([
-            'text' => $validated['text'],
+            'username' => $validated['username'],
             'password' => Hash::make($validated['password']),
         ]);
         return redirect()->route('forms.index', compact('form'));
