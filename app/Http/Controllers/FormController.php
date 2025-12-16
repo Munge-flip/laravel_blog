@@ -10,4 +10,8 @@ class FormController extends Controller
     {
         return view('forms.index');
     }
+    public function create()
+    {
+        return view('forms.create');
+    }
 }
