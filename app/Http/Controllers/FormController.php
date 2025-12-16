@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Form;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules\Password;
 
@@ -23,10 +24,10 @@ class FormController extends Controller
             'username' => ['required', 'string', 'max:50'],
             'password' => ['required', Password::defaults()],
         ]);
-        $form = Form::class([
+        Auth::user()->forms()->create([
             'username' => $validated['username'],
             'password' => Hash::make($validated['password']),
         ]);
-        return redirect()->route('forms.index', compact('form'));
+        return redirect()->route('forms.index');
     }
 }
