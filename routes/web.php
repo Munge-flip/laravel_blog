@@ -14,5 +14,6 @@ Route::middleware('guest')->group(function () {
 });
 
 Route::middleware('auth')->group(function() {
+    Route::post('/logout', [AuthenticatedUserController::class, 'destroy'])->name('logout');
     Route::resource('forms', FormController::class);
 });
