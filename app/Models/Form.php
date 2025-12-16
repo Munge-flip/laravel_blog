@@ -10,4 +10,8 @@ class Form extends Model
         'username',
         'password',
     ];
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
