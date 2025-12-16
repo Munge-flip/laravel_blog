@@ -11,13 +11,15 @@ class FormController extends Controller
 {
     public function index()
     {
-        return view('forms.index');
+        $forms = Auth::user()->forms;
+        return view('forms.index', compact('forms'));
     }
     public function create()
     {
         return view('forms.create');
     }
-    public function store(Request $request) {
+    public function store(Request $request)
+    {
         $validated = $request->validate([
             'username' => ['required', 'string', 'max:255'],
             'password' => ['required', Password::defaults()],
