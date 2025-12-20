@@ -36,6 +36,12 @@ class FormController extends Controller
 
         return view('forms.edit', compact('form'));
     }
+    public function show($id)
+    {
+        $form = Auth::user()->forms()->findOrFail($id);
+
+        return view('forms.show', compact('form'));
+    }
     public function update(Request $request, $id)
     {
         $validated = $request->validate([
@@ -48,6 +54,14 @@ class FormController extends Controller
             'username' => $validated['username'],
             'password' => Hash::make($validated['password']),
         ]);
+        return redirect()->route('forms.index');
+    }
+    public function destroy($id)
+    {
+        $form = Auth::user()->forms()->findOrFail($id);
+
+        $form->delete();
+
         return redirect()->route('forms.index');
     }
 }
