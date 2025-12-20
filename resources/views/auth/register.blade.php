@@ -25,10 +25,10 @@
     <div>
         <label for="reg-confirm">Confirm Password</label><br>
         <input type="password" name="password_confirmation" id="reg-confirm" required>
-        @error('name')
+        @error('password')
         <div style="color: red"> {{$message}} </div>
         @enderror
     </div>
     <button type="submit">Register</button>
-    {{-- <a href="{{route('login')}}">Login</a> --}}
+    <a href="{{route('login')}}">Login</a>
 </form>
