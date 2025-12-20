@@ -3,7 +3,7 @@
     @method('PATCH')
     <div>
         <label for="edit-username">Username</label><br>
-        <input type="text" name="username" id="edit-username" value="{{$form->username}}" required>
+        <input type="text" name="username" id="edit-username" value="{{old('username', $form->username)}}" required>
         @error('username')
         <div style="color: red"> {{$message}} </div>
         @enderror
