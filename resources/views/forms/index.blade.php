@@ -3,3 +3,24 @@
     @csrf
     <button type="submit">Logout</button>
 </form>
+
+<table border="1">
+    <thead>
+        <th>ID</th>
+        <th>Username</th>
+        <th>Created Date</th>
+        <th>Action</th>
+    </thead>
+    @forelse($forms as $form)
+    <tr>
+        <td> {{$form->id}} </td>
+        <td> {{$form->username}} </td>
+        <td> {{$form->created_at->format('M d, Y')}} </td>
+        <td>
+            <a href="{{route('forms.edit', $form->id)}}">Edit</a>
+        </td>
+    </tr>
+    @empty
+
+    @endforelse
+</table>
