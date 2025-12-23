@@ -21,11 +21,18 @@ This is the index
         <td> {{$form->username}} </td>
         <td> {{$form->created_at->format('M d, Y')}} </td>
         <td>
-        <a href="{{route('forms.show', $form->id)}}">View</a>
-        <a href="{{route('forms.edit', $form->id)}}">Edit</a>
+            <a href="{{route('forms.show', $form->id)}}">View</a>
+            <a href="{{route('forms.edit', $form->id)}}">Edit</a>
+            <form method="POST" action="{{route('forms.destroy', $form->id)}}" onsubmit="return confirm('Are you sure');" style="display: inline">
+                @csrf
+                @method('DELETE')
+                <button type="submit">Delete</button>
+            </form>
         </td>
     </tr>
     @empty
-
+    <td>
+        The table is empty
+    </td>
     @endforelse
 </table>
