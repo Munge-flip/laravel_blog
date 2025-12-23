@@ -45,4 +45,7 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+    public function forms() {
+        return $this->hasMany(Form::class);
+    }
 }
