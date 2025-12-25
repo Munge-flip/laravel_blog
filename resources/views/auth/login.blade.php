@@ -1,3 +1,20 @@
-<form action="">
+<form method="POST" action="{{route('login')}}">
+    @csrf
     <h3>Login</h3>
+    <div>
+        <label for="login-email">Email</label><br>
+        <input type="email" name="email" id="login-email" value="{{old('email')}}" required>
+        @error('email')
+        <div style="color: red"> {{$message}} </div>
+        @enderror
+    </div>
+    <div>
+        <label for="reg-password">Password</label><br>
+        <input type="password" name="password" id="reg-password" required>
+        @error('password')
+        <div style="color: red"> {{$message}} </div>
+        @enderror
+    </div>
+    <button type="submit">Login</button>
+    <a href="{{route('register')}}">Register</a>
 </form>

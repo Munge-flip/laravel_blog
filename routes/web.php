@@ -13,6 +13,7 @@ Route::middleware('guest')->group(function () {
     Route::post('/login', [AuthenticatedSessionController::class, 'store']);
 });
 
-Route::middleware('auth')->group(function() {
+Route::middleware('auth')->group(function () {
     Route::resource('forms', FormController::class);
+    Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
 });
