@@ -14,4 +14,12 @@ class FormController extends Controller
     {
         return view('forms.create');
     }
+    public function store(Request $request) {
+        $validated = $request->validate([
+            'firstName' => ['required', 'string', 'max:255'],
+            'lastName' => ['required', 'string', 'max:255'],
+            'middleName' => ['required', 'string', 'max:255'],
+            'dateOfBirth' => ['required', 'date'],
+        ]);
+    }
 }

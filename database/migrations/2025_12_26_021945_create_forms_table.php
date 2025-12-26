@@ -13,6 +13,13 @@ return new class extends Migration
     {
         Schema::create('forms', function (Blueprint $table) {
             $table->id();
+
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+
+            $table->string('firstName');
+            $table->string('lastName');
+            $table->string('middleName');
+            $table->date('dateOfBirth');
             $table->timestamps();
         });
     }
