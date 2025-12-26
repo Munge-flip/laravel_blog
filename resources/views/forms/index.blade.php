@@ -8,3 +8,14 @@ This is the index
 <a href="{{route('forms.create')}}">
     Add
 </a>
+
+<table border="1">
+    <thead>
+        <th>ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Middle Name</th>
+        <th>Date of Birth</th>
+        <th>Created at</th>
+    </thead>
+</table>
