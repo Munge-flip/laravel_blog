@@ -11,14 +11,16 @@ This is the index
 
 <table border="1">
     <thead>
-        <th>ID</th>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Middle Name</th>
-        <th>Date of Birth</th>
-        <th>Favorite Color</th>
-        <th>Created at</th>
-        <th>Action</th>
+        <tr>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Middle Name</th>
+            <th>Date of Birth</th>
+            <th>Favorite Color</th>
+            <th>Created at</th>
+            <th>Action</th>
+        </tr>
     </thead>
     @forelse($forms as $form)
     <tr>
@@ -27,7 +29,11 @@ This is the index
         <td> {{$form->lastName}} </td>
         <td> {{$form->middleName}} </td>
         <td> {{$form->dateOfBirth}} </td>
-        <td> {{$form->color}} </td>
+        <td>
+            <span style="background-color: {{ $form->color }}; padding: 5p 10px; color: white; border: 1px solid #ccc">
+                {{$form->color}}
+            </span>
+        </td>
         <td> {{$form->created_at->format('M d, Y')}} </td>
         <td>
             <a href="{{route('forms.show', $form->id)}}">View</a>
