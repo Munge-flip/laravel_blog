@@ -38,4 +38,29 @@ class FormController extends Controller
 
         return view('forms.show', compact('form'));
     }
+    public function edit($id)
+    {
+        $form = Auth::user()->forms()->findOrFail($id);
+
+        return view('forms.edit', compact('form'));
+    }
+    public function update(Request $request, $id)
+    {
+        $validated = $request->validate([
+            'firstName' => ['required', 'string', 'max:255'],
+            'lastName' => ['required', 'string', 'max:255'],
+            'middleName' => ['required', 'string', 'max:255'],
+            'dateOfBirth' => ['required', 'date'],
+        ]);
+        $form = Auth::user()->forms()->findOrFail($id);
+
+        $form->update([
+            'firstName' => $validated['firstName'],
+            'lastName' => $validated['lastName'],
+            'middleName' => $validated['middleName'],
+            'dateOfBirth' => $validated['dateOfBirth'],
+        ]);
+
+        return redirect()->route('forms.index');
+    }
 }
