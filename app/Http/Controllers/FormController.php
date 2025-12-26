@@ -32,4 +32,10 @@ class FormController extends Controller
         ]);
         return redirect()->route('forms.index');
     }
+    public function show($id)
+    {
+        $form = Auth::user()->forms()->findOrFail($id);
+
+        return view('forms.show', compact('form'));
+    }
 }

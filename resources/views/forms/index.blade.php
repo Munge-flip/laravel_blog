@@ -17,5 +17,22 @@ This is the index
         <th>Middle Name</th>
         <th>Date of Birth</th>
         <th>Created at</th>
+        <th>Action</th>
     </thead>
+    @forelse($forms as $form)
+    <tr>
+        <td> {{$form->id}} </td>
+        <td> {{$form->firstName}} </td>
+        <td> {{$form->lastName}} </td>
+        <td> {{$form->middleName}} </td>
+        <td> {{$form->dateOfBirth}} </td>
+        <td> {{$form->created_at->format('M d, Y')}} </td>
+        <td>
+        <a href="{{route('forms.show', $form->id)}}">View</a>
+        <a href="{{route('forms.edit', $form->id)}}">Edit</a>
+        </td>
+    </tr>
+    @empty
+
+    @endforelse
 </table>
