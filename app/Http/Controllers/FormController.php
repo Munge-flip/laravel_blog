@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rules\Password;
 
 class FormController extends Controller
 {
@@ -23,12 +25,14 @@ class FormController extends Controller
             'lastName' => ['required', 'string', 'max:255'],
             'middleName' => ['required', 'string', 'max:255'],
             'dateOfBirth' => ['required', 'date'],
+            'password' => ['required', Password::defaults()],
         ]);
         Auth::user()->forms()->create([
             'firstName' => $validated['firstName'],
             'lastName' => $validated['lastName'],
             'middleName' => $validated['middleName'],
             'dateOfBirth' => $validated['dateOfBirth'],
+            'password' => Hash::make($validated['password']),
         ]);
         return redirect()->route('forms.index');
     }
@@ -51,6 +55,7 @@ class FormController extends Controller
             'lastName' => ['required', 'string', 'max:255'],
             'middleName' => ['required', 'string', 'max:255'],
             'dateOfBirth' => ['required', 'date'],
+            'password' => ['required', Password::defaults()],
         ]);
         $form = Auth::user()->forms()->findOrFail($id);
 
@@ -59,6 +64,7 @@ class FormController extends Controller
             'lastName' => $validated['lastName'],
             'middleName' => $validated['middleName'],
             'dateOfBirth' => $validated['dateOfBirth'],
+            'password' => Hash::make($validated['password']),
         ]);
 
         return redirect()->route('forms.index');

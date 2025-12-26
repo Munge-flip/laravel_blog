@@ -11,6 +11,7 @@ class Form extends Model
         'lastName',
         'middleName',
         'dateOfBirth',
+        'password',
     ];
 
     public function user()
