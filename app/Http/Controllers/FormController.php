@@ -63,4 +63,12 @@ class FormController extends Controller
 
         return redirect()->route('forms.index');
     }
+    public function destroy($id)
+    {
+        $form = Auth::user()->forms()->findOrFail($id);
+
+        $form->delete();
+
+        return redirect()->route('forms.index');
+    }
 }
