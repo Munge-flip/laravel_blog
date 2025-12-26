@@ -25,9 +25,23 @@ Edit
         @enderror
     </div>
     <div>
-        <label for="update-dateOfBirth">Middle Name</label><br>
+        <label for="update-dateOfBirth">Date of Birth</label><br>
         <input type="date" name="dateOfBirth" id="update-dateOfBirth" value="{{old('dateOfBirth', $form->dateOfBirth)}}">
         @error('dateOfBirth')
+        <div style="color: red"> {{$message}} </div>
+        @enderror
+    </div>
+    <div>
+        <label for="update-password">Password</label><br>
+        <input type="password" name="password" id="update-password" required>
+        @error('password')
+        <div style="color: red"> {{$message}} </div>
+        @enderror
+    </div>
+    <div>
+        <label for="update-color">Favorite Color</label><br>
+        <input type="color" name="color" id="update-color" required>
+        @error('color')
         <div style="color: red"> {{$message}} </div>
         @enderror
     </div>

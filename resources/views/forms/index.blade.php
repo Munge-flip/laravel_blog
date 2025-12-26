@@ -16,6 +16,7 @@ This is the index
         <th>Last Name</th>
         <th>Middle Name</th>
         <th>Date of Birth</th>
+        <th>Favorite Color</th>
         <th>Created at</th>
         <th>Action</th>
     </thead>
@@ -26,6 +27,7 @@ This is the index
         <td> {{$form->lastName}} </td>
         <td> {{$form->middleName}} </td>
         <td> {{$form->dateOfBirth}} </td>
+        <td> {{$form->color}} </td>
         <td> {{$form->created_at->format('M d, Y')}} </td>
         <td>
             <a href="{{route('forms.show', $form->id)}}">View</a>

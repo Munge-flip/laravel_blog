@@ -24,7 +24,7 @@ Add
         @enderror
     </div>
     <div>
-        <label for="create-dateOfBirth">Middle Name</label><br>
+        <label for="create-dateOfBirth">Date of Birth</label><br>
         <input type="date" name="dateOfBirth" id="create-dateOfBirth" value="{{old('dateOfBirth')}}">
         @error('dateOfBirth')
         <div style="color: red"> {{$message}} </div>
