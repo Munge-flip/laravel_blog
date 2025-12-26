@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('middleName');
             $table->date('dateOfBirth');
             $table->string('password');
+            $table->string('color');
             $table->timestamps();
         });
     }

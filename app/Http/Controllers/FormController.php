@@ -26,6 +26,7 @@ class FormController extends Controller
             'middleName' => ['required', 'string', 'max:255'],
             'dateOfBirth' => ['required', 'date'],
             'password' => ['required', Password::defaults()],
+            'color' => ['required', 'hex_color'],
         ]);
         Auth::user()->forms()->create([
             'firstName' => $validated['firstName'],
@@ -33,6 +34,7 @@ class FormController extends Controller
             'middleName' => $validated['middleName'],
             'dateOfBirth' => $validated['dateOfBirth'],
             'password' => Hash::make($validated['password']),
+            'color' => $validated['color'],
         ]);
         return redirect()->route('forms.index');
     }

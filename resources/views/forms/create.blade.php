@@ -37,5 +37,12 @@ Add
         <div style="color: red"> {{$message}} </div>
         @enderror
     </div>
+    <div>
+        <label for="create-color">Favorite Color</label><br>
+        <input type="color" name="color" id="create-color" required>
+        @error('color')
+        <div style="color: red"> {{$message}} </div>
+        @enderror
+    </div>
     <input type="submit" value="SUBMIT">
 </form>
