@@ -11,7 +11,8 @@ class FormController extends Controller
 {
     public function index()
     {
-        return view('forms.index');
+        $forms = Auth::user()->forms;
+        return view('forms.index', compact('forms'));
     }
     public function create()
     {
@@ -38,5 +39,17 @@ class FormController extends Controller
             'date' => $validated['date'],
         ]);
         return redirect()->route('forms.index');
+    }
+    public function show($id)
+    {
+        $form = Auth::user()->forms()->findOrFail($id);
+
+        return view('forms.show', compact('form'));
+    }
+    public function edit($id)
+    {
+        $form = Auth::user()->forms()->findOrFail($id);
+
+        return view('forms.edit', compact('form'));
     }
 }
