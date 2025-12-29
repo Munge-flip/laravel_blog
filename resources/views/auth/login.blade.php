@@ -1,6 +1,6 @@
 <form method="POST" action="{{route('login')}}">
 @csrf
-    <h3>Register</h3>
+    <h3>Login</h3>
     <div>
         <label for="login-email">Email</label><br>
         <input type="email" name="email" id="login-email" value="{{old('email')}}" required>
