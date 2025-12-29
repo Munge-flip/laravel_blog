@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthenticatedSessionController;
+use App\Http\Controllers\FormController;
 use App\Http\Controllers\RegisteredUserController;
 use Illuminate\Support\Facades\Route;
 
@@ -10,4 +11,9 @@ Route::middleware('guest')->group(function () {
 
     Route::get('/login', [AuthenticatedSessionController::class, 'create'])->name('login');
     Route::post('/login', [AuthenticatedSessionController::class, 'store']);
+});
+
+Route::middleware('auth')->group(function () {
+    Route::resource('forms', FormController::class);
+    Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
 });
