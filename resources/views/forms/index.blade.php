@@ -4,3 +4,7 @@ This is the index
     @csrf
     <button type="submit">Logout</button>
 </form>
+
+<a href="{{route('forms.create')}}">
+    <button>Add</button>
+</a>
