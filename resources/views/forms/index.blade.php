@@ -29,13 +29,20 @@ This is the index
         <td> {{$form->text}} </td>
         <td> {{$form->email}} </td>
         <td> {{$form->color}} </td>
-        <td> {{$form->game}} </td>
+        <td> <span style="background-color: {{ $form->color }}; padding: 5p 10px; color: white; border: 1px solid #ccc">
+                {{$form->game}}
+        </td>
         <td> {{$form->checkbox}} </td>
         <td> {{$form->date}} </td>
         <td> {{$form->created_at->format('M d, Y')}} </td>
         <td>
             <a href="{{route('forms.show', $form->id)}}">View</a>
             <a href="{{route('forms.edit', $form->id)}}">Edit</a>
+            <form method="POST" action="{{route('forms.destroy', $form->id)}}" onsubmit="return confirm('Are you sure');" style="display: inline">
+                @csrf
+                @method('DELETE')
+                <button type="submit">Delete</button>
+            </form>
         </td>
     </tr>
     @empty

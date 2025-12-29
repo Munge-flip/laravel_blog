@@ -1,7 +1,8 @@
 Input types
 
-<form method="POST" action="{{route('forms.store')}}">
+<form method="POST" action="{{route('forms.update', $form->id)}}">
     @csrf
+    @method('PATCH')
     <div>
         <label for="create-text">text</label><br>
         <input type="text" name="text" id="create-text" value="{{old('text', $form->text)}}">
@@ -11,7 +12,7 @@ Input types
     </div>
     <div>
         <label for="create-email">Email</label><br>
-        <input type="email" name="email" id="create-email">
+        <input type="email" name="email" id="create-email" value="{{old('email', $form->email)}}">
         @error('email')
         <div style="color: red"> {{$message}} </div>
         @enderror
@@ -25,7 +26,7 @@ Input types
     </div>
     <div>
         <label for="create-color">Color</label><br>
-        <input type="color" name="color" id="create-color">
+        <input type="color" name="color" id="create-color" value="{{old('color', $form->color)}}">
         @error('color')
         <div style="color: red"> {{$message}} </div>
         @enderror
@@ -53,7 +54,7 @@ Input types
     </div>
     <div>
         <label for="create-date">Date</label><br>
-        <input type="date" name="date" id="create-date" value="{{old('date')}}">
+        <input type="date" name="date" id="create-date" value="{{old('date', $form->date)}}">
         @error('date')
         <div style="color: red"> {{$message}} </div>
         @enderror

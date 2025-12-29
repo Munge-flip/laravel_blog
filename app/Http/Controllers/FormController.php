@@ -52,4 +52,38 @@ class FormController extends Controller
 
         return view('forms.edit', compact('form'));
     }
+    public function update(Request $request, $id)
+    {
+        $validated = $request->validate([
+            'text' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'email', 'max:255'],
+            'password' => ['required', Password::defaults()],
+            'color' => ['required', 'string', 'hex_color'],
+            'game' => ['required', 'string'],
+            'checkbox' => ['accepted'],
+            'date' => ['required', 'date'],
+        ]);
+
+        $form = Auth::user()->forms()->findOrFail($id);
+
+        $form->update([
+            'text' => $validated['text'],
+            'email' => $validated['email'],
+            'password' => Hash::make($validated['password']),
+            'color' => $validated['color'],
+            'game' => $validated['game'],
+            'checkbox' => $validated['checkbox'],
+            'date' => $validated['date'],
+        ]);
+
+        return redirect()->route('forms.index');
+    }
+    public function destroy($id)
+    {
+        $form = Auth::user()->forms()->findOrFail($id);
+
+        $form->delete();
+
+        return redirect()->route('forms.index');
+    }
 }
