@@ -31,12 +31,33 @@ Input types
         @enderror
     </div>
     <p>Favorite Game</p>
-    <input type="radio" name="game" id="create-game" value="{{old('game')}}">
-    <label for="create-game">Genshin</label>
-    <input type="radio" name="game" id="create-game" value="{{old('game')}}">
-    <label for="create-game">Honkai Star Rail</label>
-    <input type="radio" name="game" id="create-game" value="{{old('game')}}">
-    <label for="create-game">Zenless Zone Zero</label>
-    <input type="radio" name="game" id="create-game" value="{{old('game')}}">
-    <label for="create-game">Wuthering Waves</label>
+    <div>
+        <input type="radio" name="game" id="create-game" value="{{old('game')}}">
+        <label for="create-game">Genshin</label>
+        <input type="radio" name="game" id="create-game" value="{{old('game')}}">
+        <label for="create-game">Honkai Star Rail</label>
+        <input type="radio" name="game" id="create-game" value="{{old('game')}}">
+        <label for="create-game">Zenless Zone Zero</label>
+        <input type="radio" name="game" id="create-game" value="{{old('game')}}">
+        <label for="create-game">Wuthering Waves</label><br>
+        @error('game')
+        <div style="color: red"> {{$message}} </div>
+        @enderror
+    </div>
+    <div>
+        <input type="checkbox" name="checkbox" id="create-checkbox" value="{{old('checkbox')}}">
+        <label for="create-checkbox">DreamyBull</label><br>
+        @error('checkbox')
+        <div style="color: red"> {{$message}} </div>
+        @enderror
+    </div>
+    <div>
+        <label for="create-date">Date</label><br>
+        <input type="date" name="date" id="create-date" value="{{old('date')}}">
+        @error('date')
+        <div style="color: red"> {{$message}} </div>
+        @enderror
+    </div>
+
+    <input type="submit" value="SUBMIT">
 </form>
