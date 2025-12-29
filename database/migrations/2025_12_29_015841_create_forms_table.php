@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('email');
             $table->string('password');
             $table->string('color');
-            $table->string('radio');
+            $table->string('game');
             $table->string('checkbox');
 
             $table->date('date');

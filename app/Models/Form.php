@@ -11,7 +11,7 @@ class Form extends Model
         'email',
         'password',
         'color',
-        'radio',
+        'game',
         'checkbox',
         'date',
     ];

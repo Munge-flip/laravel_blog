@@ -24,16 +24,16 @@ class FormController extends Controller
             'email' => ['required', 'email', 'max:255'],
             'password' => ['required', Password::defaults()],
             'color' => ['required', 'string', 'hex_color'],
-            'radio' => ['required', 'string', 'radio'],
-            'checkbox' => ['required', 'string', 'checkbox'],
-            'date' => ['required', 'string', 'date'],
+            'game' => ['required', 'string'],
+            'checkbox' => ['accepted'],
+            'date' => ['required', 'date'],
         ]);
         Auth::user()->forms()->create([
             'text' => $validated['text'],
-            'emai' => $validated['email'],
+            'email' => $validated['email'],
             'password' => Hash::make($validated['password']),
             'color' => $validated['color'],
-            'radio' => $validated['radio'],
+            'game' => $validated['game'],
             'checkbox' => $validated['checkbox'],
             'date' => $validated['date'],
         ]);
